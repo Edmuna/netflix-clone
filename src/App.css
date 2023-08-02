@@ -1,0 +1,390 @@
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap);
+
+.hero,
+.posterImage__overlay {
+    flex-direction: column;
+    display: flex
+}
+
+.navbar-links>*,
+.navbar-logo,
+header {
+    letter-spacing: .1rem
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif
+}
+
+.hero {
+    gap: 2rem;
+    background-color: #141414
+}
+
+.navbar {
+    width: 100vw;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+    z-index: 999;
+    position: fixed
+}
+
+.navbar.scrolled {
+    background-color: #0b0b0b;
+    transition: background-color .6s
+}
+
+.navbar-logo {
+    font-size: 38px;
+    color: red
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    gap: 1.5rem
+}
+
+.navbar-input,
+header {
+    height: 40px;
+    width: 250px;
+    color: #fff
+}
+
+.navbar-links>* {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none
+}
+
+.navbar-links>:hover {
+    cursor: pointer;
+    color: red
+}
+
+.navbar-input {
+    border: 2px solid #fff;
+    background-color: #141414;
+    margin-inline: .25rem;
+    text-align: left;
+    padding-inline: .5rem
+}
+
+.card img,
+.details,
+.movie__poster {
+    border-radius: 10px
+}
+
+.navbar-input:focus {
+    outline: 0
+}
+
+.posterImage {
+    height: 600px
+}
+
+.posterImage>img {
+    display: block;
+    width: 100%
+}
+
+.posterImage__overlay {
+    position: absolute;
+    padding: 5rem;
+    bottom: 0;
+    height: 70%;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), #000);
+    opacity: 1;
+    transition: opacity .3s
+}
+
+.card,
+.container {
+    position: relative
+}
+
+.card,
+.details {
+    transition: transform .2s, opacity .2s
+}
+
+.posterImage__overlay:hover {
+    opacity: 1
+}
+
+.posterImage__title {
+    font-weight: 900;
+    font-size: 4rem;
+    margin-bottom: .4rem;
+    text-align: left;
+    color: #fff
+}
+
+.posterImage__runtime {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff
+}
+
+.posterImage__description {
+    font-style: italic;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: .25rem;
+    display: flex;
+    text-align: left;
+    width: 50%
+}
+
+.container {
+    height: 100%;
+    background: url(./components/bg.png) center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding: 7rem 0;
+    gap: 1rem;
+    overflow-y: hidden
+}
+
+header {
+    font-size: 36px;
+    font-weight: 500;
+    margin-left: 2rem
+}
+
+.footer {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    color: #fff
+}
+
+.favorites {
+    height: 100vh
+}
+
+.card,
+.card img {
+    height: 240px;
+    width: 335px
+}
+
+.card__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    margin-inline: .5rem
+}
+
+.card:hover .details {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 999
+}
+
+.details {
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #564d4d;
+    z-index: 999;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5rem;
+    opacity: 0;
+    font-size: 14px;
+    margin-inline: 1rem
+}
+
+.movie,
+.movie__detail,
+.movie__links,
+.synopsisText {
+    position: relative;
+    display: flex
+}
+
+.title {
+    font-weight: 700;
+    font-size: 22px;
+    border-bottom: 1px solid #000
+}
+
+.overview {
+    border-top: 1px solid #000;
+    font-style: italic
+}
+
+.vote__heart {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: .5rem
+}
+
+.heart:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+.fa-heart.clicked {
+    background: red
+}
+
+.movie {
+    width: 100%;
+    flex-direction: column;
+    align-items: center
+}
+
+.movie__intro {
+    width: 80%
+}
+
+.movie__backdrop {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: 0 35%
+}
+
+.movie__detail {
+    align-items: center;
+    width: 75%;
+    bottom: 225px
+}
+
+.movie__detailLeft {
+    margin-right: 30px
+}
+
+.movie__poster {
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, .86) 0 22px 40px 6px
+}
+
+.movie__detailRight {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    justify-content: space-between
+}
+
+.movie__detailRightTop>div {
+    text-shadow: 0 0 5px #000;
+    margin-bottom: .5rem
+}
+
+.movie__name {
+    font-weight: 600;
+    font-size: 3rem
+}
+
+.movie__voteCount {
+    margin-left: 1rem
+}
+
+.movie__genres {
+    margin: 1.25rem 0
+}
+
+.movie__genre {
+    padding: .5rem;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    margin-right: 1rem
+}
+
+.movie__detailRightBottom {
+    margin: 2rem 0;
+    flex: 0.8
+}
+
+.synopsisText {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    align-items: center
+}
+
+.synopsisText>div:last-of-type {
+    margin-left: auto
+}
+
+.movie__links {
+    bottom: 120px;
+    justify-content: space-between;
+    width: 75%
+}
+
+.movie__heading {
+    font-size: 2.2rem
+}
+
+.movie__Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 150px;
+    color: #000;
+    font-weight: 700
+}
+
+.movie__homeButton {
+    background-color: red
+}
+
+.movie__imdbButton {
+    background-color: #f3ce13
+}
+
+.newTab {
+    margin-left: 1.4rem
+}
+
+.movie__production {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 4rem
+}
+
+.movie__productionComapany {
+    width: 200px;
+    margin: 2rem
+}
+
+.productionCompanyImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
