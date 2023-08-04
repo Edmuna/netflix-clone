@@ -2,12 +2,18 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
+import Favorites from "./Favorites"
 
+// eslint-disable-next-line react/prop-types
 export default function Home({ fetchData }) {
 
     const [trendingMovies, setTrendingMovies] = useState([])
 
     const url = "https://api.themoviedb.org/3/trending/movie/week?api_key=72d2974158fa7648cd09581860b1304f"
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         const fetchDataFromApi = async () => {
@@ -56,6 +62,7 @@ export default function Home({ fetchData }) {
                     ))}
                 </Carousel >
             </div >
+            <Favorites />
         </>
     )
 }

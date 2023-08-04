@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
-.hero,
 .posterImage__overlay {
     flex-direction: column;
     display: flex
@@ -19,10 +18,10 @@ header {
     font-family: 'Libre Baskerville', serif
 }
 
-.hero {
+/* .hero {
     gap: 2rem;
     background-color: #141414
-}
+} */
 
 .navbar {
     width: 100vw;
@@ -62,7 +61,7 @@ header {
 }
 
 .navbar-links>* {
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
     text-decoration: none
 }
@@ -152,7 +151,8 @@ header {
 
 .container {
     height: 100%;
-    background: url(./components/bg.png) center center/cover no-repeat;
+    /* background: url(./components/bg.png) center center/cover no-repeat; */
+    background-color: black;
     display: flex;
     flex-direction: column;
     padding: 7rem 0;
@@ -163,7 +163,9 @@ header {
 header {
     font-size: 36px;
     font-weight: 500;
-    margin-left: 2rem
+    margin-left: 2rem;
+    width: 350px;
+    text-align: center;
 }
 
 .footer {
@@ -172,11 +174,8 @@ header {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    color: #fff
-}
-
-.favorites {
-    height: 100vh
+    color: #fff;
+    background-color: black;
 }
 
 .card,
@@ -218,12 +217,16 @@ header {
     margin-inline: 1rem
 }
 
+.movie {
+    background-color: #141414;
+}
+
 .movie,
 .movie__detail,
 .movie__links,
 .synopsisText {
     position: relative;
-    display: flex
+    display: flex;
 }
 
 .title {
@@ -358,7 +361,13 @@ header {
 }
 
 .movie__homeButton {
-    background-color: red
+    background-color: green
+}
+
+.movie__favoriteButton {
+    background-color: red;
+    border: none;
+    width: 220px;
 }
 
 .movie__imdbButton {

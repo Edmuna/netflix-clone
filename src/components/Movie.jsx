@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 
-const Movie = () => {
+const Movie = ({ addFavoriteMoviesClickHandler }) => {
 
     const [currentMovieDetail, setCurrentMovieDetail] = useState({})
     const { id } = useParams()
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -19,6 +20,7 @@ const Movie = () => {
             .then(res => res.json())
             .then(data => setCurrentMovieDetail(data))
     }
+
     return (
         <>
             <div className="movie">
@@ -36,7 +38,7 @@ const Movie = () => {
                             <div className="movie__name">{currentMovieDetail ? currentMovieDetail.original_title : ""}</div>
                             <div className="movie__tagline">{currentMovieDetail ? currentMovieDetail.tagline : ""}</div>
                             <div className="movie__rating">
-                                {currentMovieDetail ? currentMovieDetail.vote_average : ""} <i class="fas fa-star" />
+                                {currentMovieDetail ? currentMovieDetail.vote_average : ""} <i className="fas fa-star" />
                                 <span className="movie__voteCount">{currentMovieDetail ? "(" + currentMovieDetail.vote_count + ") votes" : ""}</span>
                             </div>
                             <div className="movie__runtime">{currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}</div>
@@ -53,6 +55,7 @@ const Movie = () => {
                     {
                         currentMovieDetail && currentMovieDetail.homepage && <a href={currentMovieDetail.homepage} target="_blank" style={{ textDecoration: "none" }}><p><span className="movie__homeButton movie__Button">Homepage <i className="newTab fas fa-external-link-alt"></i></span></p></a>
                     }
+                    <button onClick={() => addFavoriteMoviesClickHandler(currentMovieDetail.id)} className="movie__Button movie__favoriteButton">ADD TO FAVORITES</button>
                     {
                         currentMovieDetail && currentMovieDetail.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id} target="_blank" style={{ textDecoration: "none" }}><p><span className="movie__imdbButton movie__Button">IMDb<i className="newTab fas fa-external-link-alt"></i></span></p></a>
                     }

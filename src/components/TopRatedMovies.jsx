@@ -1,11 +1,25 @@
+import { useSearchedMovies } from "../SearchedMoviesContext";
 import MoviesList from "./MoviesList";
 
-const TopRatedMovies = ({ fetchData }) => {
+const Popular = ({ fetchData }) => {
+    const { searchedMoviesList } = useSearchedMovies();
 
-    const url =
-        "https://api.themoviedb.org/3/movie/top_rated?api_key=72d2974158fa7648cd09581860b1304f";
+    const popularUrl =
+        "https://api.themoviedb.org/3/movie/popular?api_key=72d2974158fa7648cd09581860b1304f";
 
-    return <MoviesList fetchData={fetchData} url={url} > TOP RATED</MoviesList>;
+    return (
+        <>
+            {searchedMoviesList.length > 0 ? (
+                <MoviesList fetchData={fetchData} url={popularUrl} movies={searchedMoviesList}>
+                    Searched results :
+                </MoviesList>
+            ) : (
+                <MoviesList fetchData={fetchData} url={popularUrl} movies={[]}>
+                    Top rated
+                </MoviesList>
+            )}
+        </>
+    );
 };
 
-export default TopRatedMovies;
+export default Popular;

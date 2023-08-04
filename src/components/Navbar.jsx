@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer";
+import { useSearchedMovies } from "../SearchedMoviesContext"; // Import the context hook
 
 const Navbar = () => {
-
     const [scrolled, setScrolled] = useState(false);
-    const [searchInputValue, setSearchInputValue] = useState("");
-    const [searchedMoviesList, setSearchedMoviesList] = useState([]);
+    const { searchInputValue, searchInputValueHandler } = useSearchedMovies(); // Get the function and value from the context
 
-    const searchInputValueHandler = (e) => {
-        e.preventDefault();
-        setSearchInputValue(e.target.value);
+    const delayedSearchInputValueHandler = (e) => {
+        const newSearchInputValue = e.target.value;
+        setTimeout(() => {
+            searchInputValueHandler(newSearchInputValue);
+        }, 1000);
     };
-
-    useEffect(() => {
-        if (searchedMoviesList === "") return
-        fetchDataFromApi();
-    }, [searchInputValue]);
-
-    const fetchDataFromApi = async () => {
-        try {
-            const searchUrl = `https://api.themoviedb.org/3/search/movie?query=${searchInputValue}&api_key=72d2974158fa7648cd09581860b1304f`;
-            const response = await fetch(searchUrl);
-            const data = await response.json();
-            setSearchedMoviesList(data.results);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    console.log(searchedMoviesList);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -54,18 +37,18 @@ const Navbar = () => {
                     <NavLink to="popular">Popular</NavLink>
                     <NavLink to="top_rated_movies">Top rated</NavLink>
                     <NavLink to="upcoming">Upcoming</NavLink>
+                    <NavLink to="favorites">Favorites</NavLink>
                 </ul>
                 <div className="search-input">
-                    <input onChange={searchInputValueHandler} className="navbar-input" placeholder="Titles, peoples, genres" type="text" />
+                    <input onChange={delayedSearchInputValueHandler} className="navbar-input" placeholder="Titles, peoples, genres" type="text" />
                 </div>
             </nav>
             <main>
                 <Outlet />
             </main>
-
             <Footer />
         </>
     )
 }
 
-export default Navbar
+export default Navbar;

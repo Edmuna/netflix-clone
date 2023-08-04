@@ -2,20 +2,15 @@ import { useState, useEffect } from "react"
 import Header from "./Header"
 import { Link } from "react-router-dom";
 
-const MoviesList = ({ fetchData, url, children }) => {
+const MoviesList = ({ fetchData, url, children, movies }) => {
 
-    const [movies, setMovies] = useState([]);
-    const [heartClicked, setHeartClicked] = useState(false);
-
-    const heartClickHandler = () => {
-        setHeartClicked(!heartClicked);
-    };
+    const [fetchedMovies, setFetchedMovies] = useState([]);
 
     useEffect(() => {
         const fetchDataFromApi = async () => {
             try {
                 const data = await fetchData(url);
-                setMovies(data);
+                setFetchedMovies(data);
             } catch (error) {
                 console.error(error);
             }
@@ -24,13 +19,15 @@ const MoviesList = ({ fetchData, url, children }) => {
         fetchDataFromApi();
     }, [fetchData, url]);
 
+    const moviesToRender = movies.length > 0 ? movies : fetchedMovies;
+
     return (
         <div className="container">
             <div className="header">
                 <Header>{children}</Header>
             </div>
             <div className="card__container">
-                {movies.map((movie, id) => (
+                {moviesToRender.map((movie, id) => (
                     <Link key={id} to={`/movie/${movie.id}`}>
                         <div key={id} className="card">
                             <div className="card-img">
@@ -45,7 +42,7 @@ const MoviesList = ({ fetchData, url, children }) => {
                                         {movie.vote_average} <i className="fa-regular fa-star fa-lg"></i>
                                     </div>
                                     <div className="heart">
-                                        <i onClick={heartClickHandler} className={`fa-regular fa-heart fa-lg ${heartClicked ? "clicked" : ""}`}></i>
+                                        <i className="fa-regular fa-heart fa-lg" ></i>
                                     </div>
                                 </div>
                                 <div className="overview">
@@ -60,5 +57,4 @@ const MoviesList = ({ fetchData, url, children }) => {
     )
 }
 
-
-export default MoviesList
+export default MoviesList;
