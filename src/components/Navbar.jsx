@@ -6,6 +6,13 @@ import { useSearchedMovies } from "../SearchedMoviesContext"; // Import the cont
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const { searchInputValue, searchInputValueHandler } = useSearchedMovies(); // Get the function and value from the context
+    const [showNavbarLinks, setShowNavbarLinks] = useState(false)
+
+    const showNavbarLinksClickHandler = () => {
+        if (showNavbarLinks) {
+            setShowNavbarLinks(false)
+        } else setShowNavbarLinks(true)
+    }
 
     const delayedSearchInputValueHandler = (e) => {
         const newSearchInputValue = e.target.value;
@@ -32,7 +39,7 @@ const Navbar = () => {
         <>
             <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <h1 className="navbar-logo">NETFLIX</h1>
-                <ul className="navbar-links">
+                <ul className={`navbar-links ${!showNavbarLinks ? `hidden` : ``} `}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="popular">Popular</NavLink>
                     <NavLink to="top_rated_movies">Top rated</NavLink>
@@ -42,7 +49,8 @@ const Navbar = () => {
                 <div className="search-input">
                     <input onChange={delayedSearchInputValueHandler} className="navbar-input" placeholder="Titles, peoples, genres" type="text" />
                 </div>
-            </nav>
+                <div className="hamburger__Menu"><i onClick={showNavbarLinksClickHandler} className="fa-solid fa-bars fa-2xl"></i></div>
+            </nav >
             <main>
                 <Outlet />
             </main>
@@ -52,3 +60,5 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+// {`search-input ${!showNavbarLinks ? `hidden` : ``} `}

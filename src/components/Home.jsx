@@ -34,6 +34,7 @@ export default function Home({ fetchData }) {
                 <Carousel
                     className="carousel"
                     showThumbs={false}
+                    showIndicators={false}
                     autoPlay={false}
                     transitionTime={3}
                     infiniteLoop={true}

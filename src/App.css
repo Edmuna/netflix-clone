@@ -18,11 +18,6 @@ header {
     font-family: 'Libre Baskerville', serif
 }
 
-/* .hero {
-    gap: 2rem;
-    background-color: #141414
-} */
-
 .navbar {
     width: 100vw;
     height: 60px;
@@ -90,7 +85,7 @@ header {
 }
 
 .posterImage {
-    height: 600px;
+    height: 750px;
 }
 
 .posterImage>img {
@@ -151,8 +146,9 @@ header {
 
 .container {
     height: 100%;
+    width: 100vw;
     /* background: url(./components/bg.png) center center/cover no-repeat; */
-    background-color: black;
+    background-color: #141414;
     display: flex;
     flex-direction: column;
     padding: 7rem 0;
@@ -170,12 +166,13 @@ header {
 
 .footer {
     height: 100px;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     color: #fff;
-    background-color: black;
+    background-color: #141414;
 }
 
 .card,
@@ -238,23 +235,6 @@ header {
 .overview {
     border-top: 1px solid #000;
     font-style: italic
-}
-
-.vote__heart {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-inline: .5rem
-}
-
-.heart:hover {
-    cursor: pointer;
-    transform: scale(1.1)
-}
-
-.fa-heart.clicked {
-    background: red
 }
 
 .movie {
@@ -364,14 +344,26 @@ header {
     background-color: green
 }
 
+.movie__homeButton:hover {
+    background-color: darkgreen;
+}
+
 .movie__favoriteButton {
     background-color: red;
     border: none;
     width: 220px;
 }
 
+.movie__favoriteButton:hover {
+    background-color: rgb(168, 9, 9);
+}
+
 .movie__imdbButton {
     background-color: #f3ce13
+}
+
+.movie__imdbButton:hover {
+    background-color: #a08913;
 }
 
 .newTab {
@@ -396,4 +388,122 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center
+}
+
+.hamburger__Menu {
+    display: none;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 760px) {
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        /* background-color: #141414; */
+        padding-inline: .1rem;
+    }
+
+    .navbar-links {
+        position: absolute;
+        height: 70vh;
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 60px;
+        right: 0;
+        background-color: #281414;
+        gap: 4rem;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .navbar-logo {
+        font-size: 1.1rem;
+    }
+
+    .hidden {
+        display: none;
+        pointer-events: none;
+        visibility: hidden;
+        right: -40vw;
+        transition: right 0.5s ease;
+    }
+
+    .search-input .navbar-input {
+        width: 40vw;
+        height: 30px;
+        margin-bottom: .1rem;
+    }
+
+    .container {
+        width: 100vw;
+        overflow-y: hidden;
+    }
+
+    .footer {
+        width: 100vw;
+    }
+
+    .navbar-input {
+        width: 30vw;
+    }
+
+    .hamburger__Menu {
+        display: block;
+        color: white;
+        pointer-events: all;
+    }
+
+    .posterImage {
+        height: 100vh;
+    }
+
+    .posterImage>img {
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .posterImage__overlay {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        line-height: 5rem;
+    }
+
+    .posterImage__title {
+        color: rgb(255, 255, 255);
+        height: 50vh;
+        width: 100%;
+        margin-top: 1rem;
+        font-size: 3rem;
+        position: absolute;
+        left: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 80px;
+    }
+
+    .posterImage__runtime {
+        display: none;
+    }
+
+    .posterImage__description {
+        display: none;
+    }
+
+    .favorites {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+    }
+
 }
