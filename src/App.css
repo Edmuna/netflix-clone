@@ -426,13 +426,14 @@ header {
 
     .navbar-links {
         position: absolute;
-        height: 70vh;
-        width: 40vw;
+        height: 100vh;
+        width: 35vw;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         top: 60px;
+        padding-top: 2rem;
         right: 0;
         background-color: #281414;
         gap: 4rem;
@@ -517,8 +518,8 @@ header {
     }
 
     .favorites {
-        height: 100%;
-        width: 100vw;
+        /* height: 100%; */
+        /* width: 100vw; */
         display: flex;
         flex-direction: column;
         align-items: center;
