@@ -55,7 +55,7 @@ const Movie = ({ addFavoriteMoviesClickHandler }) => {
                 {
                     currentMovieDetail && currentMovieDetail.homepage && <a href={currentMovieDetail.homepage} target="_blank" style={{ textDecoration: "none" }}><p><span className="movie__homeButton movie__Button">Homepage <i className="newTab fas fa-external-link-alt"></i></span></p></a>
                 }
-                <button onClick={() => addFavoriteMoviesClickHandler(currentMovieDetail.id)} className="movie__Button movie__favoriteButton">ADD TO FAVORITES</button>
+                <button onClick={() => addFavoriteMoviesClickHandler(currentMovieDetail.id)} className="movie__Button movie__favoriteButton">Add</button>
                 {
                     currentMovieDetail && currentMovieDetail.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id} target="_blank" style={{ textDecoration: "none" }}><p><span className="movie__imdbButton movie__Button">IMDb<i className="newTab fas fa-external-link-alt"></i></span></p></a>
                 }
