@@ -39,6 +39,7 @@ export default function Home({ fetchData }) {
                     transitionTime={3}
                     infiniteLoop={true}
                     showStatus={false}
+                    swipeable={false}
                 >
                     {trendingMovies.map((movie, index) => (
                         <Link key={index} to={`/movie/${movie.id}`}>

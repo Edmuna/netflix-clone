@@ -568,10 +568,18 @@ header {
     }
 
     .movie__Button {
-        height: 30px;
+        height: 40px;
         width: 110px;
-        font-size: 12px;
-        padding-inline: .6rem;
-        margin: .5rem;
+        font-size: 14px;
+        margin-inline: .3rem;
+    }
+
+    .movie__homeButton {
+        width: 125px;
+        padding-inline: .5rem;
+    }
+
+    .movie__favoriteButton {
+        width: 70px;
     }
 }
