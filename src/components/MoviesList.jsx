@@ -41,13 +41,10 @@ const MoviesList = ({ fetchData, url, children, movies }) => {
                                     <div className="vote">
                                         {movie.vote_average} <i className="fa-regular fa-star fa-lg"></i>
                                     </div>
-                                    <div className="heart">
-                                        <i className="fa-regular fa-heart fa-lg" ></i>
-                                    </div>
                                 </div>
-                                <div className="overview">
+                                {/* <div className="overview">
                                     {movie.overview}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </Link>

@@ -173,21 +173,95 @@ header {
     text-align: center;
 }
 
-.footer {
-    height: 100px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+footer {
     gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: .05rem;
+    border-top: 1px solid gray;
+    width: 90vw;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+.contact {
+    color: #6f7e80;
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 7.5rem;
+    height: 40px;
+    padding-top: .5rem;
+}
+
+.contact__Links>* {
+    margin: 1rem;
     color: #fff;
-    background-color: #141414;
+}
+
+.footer__Links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    flex-wrap: wrap;
+}
+
+.copyrights {
+    text-align: center;
+    color: #6f7e80;
+    margin: 1.5rem 0;
+    font-size: 11px;
+}
+
+.faq {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-decoration: none;
+}
+
+.faq>* {
+    text-decoration: none;
+    color: #6f7e80;
+}
+
+.help__Center>* {
+    text-decoration: none;
+    color: #6f7e80;
+}
+
+.account>* {
+    color: #6f7e80;
+    text-decoration: none;
+}
+
+.media__Center>* {
+    text-decoration: none;
+    color: #6f7e80;
+}
+
+.help__Center {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    color: #6f7e80;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.media__Center {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 .card,
 .card img {
-    height: 240px;
-    width: 335px
+    height: 170px;
+    width: 260px
 }
 
 .card__container {
@@ -407,6 +481,8 @@ header {
 
 .favorites {
     width: 100vw;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
 }
 
 @media screen and (max-width: 760px) {
@@ -460,7 +536,8 @@ header {
     }
 
     .container {
-        width: 100vw;
+        /* width: 100vw; */
+        border: 2px solid white;
     }
 
     .footer {
@@ -581,5 +658,38 @@ header {
 
     .movie__favoriteButton {
         width: 70px;
+    }
+
+    footer {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* height: 100vh; */
+        margin: 0;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    .contact__Links {
+        display: flex;
+        margin: 0;
+        height: 50px;
+        width: 100px;
+    }
+
+    .footer__Links {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
 }

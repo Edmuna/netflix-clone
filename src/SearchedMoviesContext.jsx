@@ -14,7 +14,7 @@ export const SearchedMoviesProvider = ({ children }) => {
 
     useEffect(() => {
         if (!searchInputValue) {
-            setSearchedMoviesList([]); // Clear the list when search input is empty
+            setSearchedMoviesList([]);
             return;
         }
 

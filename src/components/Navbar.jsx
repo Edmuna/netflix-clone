@@ -52,6 +52,7 @@ const Navbar = () => {
                 <div className="hamburger__Menu"><i onClick={showNavbarLinksClickHandler} className="fa-solid fa-bars fa-2xl"></i></div>
             </nav >
             <Outlet />
+            <Footer />
         </>
     )
 }
