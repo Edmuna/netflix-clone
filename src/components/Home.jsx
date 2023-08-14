@@ -3,6 +3,10 @@ import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import Favorites from "./Favorites"
+import Popular from "./Popular"
+import Upcoming from "./Upcoming"
+import TopRatedMovies from "./TopRatedMovies"
+import Footer from "./Footer";
 
 // eslint-disable-next-line react/prop-types
 export default function Home({ fetchData }) {
@@ -34,8 +38,9 @@ export default function Home({ fetchData }) {
                 <Carousel
                     className="carousel"
                     showThumbs={false}
+                    showArrows={true}
                     showIndicators={false}
-                    autoPlay={false}
+                    autoPlay={true}
                     transitionTime={3}
                     infiniteLoop={true}
                     showStatus={false}
@@ -64,7 +69,9 @@ export default function Home({ fetchData }) {
                     ))}
                 </Carousel >
             </div >
-            <Favorites />
+            <div className="navlinks__Container">
+                <Favorites />
+            </div>
         </>
     )
 }

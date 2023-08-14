@@ -13,7 +13,8 @@ body {
 .navbar-links>*,
 .navbar-logo,
 header {
-    letter-spacing: .1rem
+    letter-spacing: .1rem;
+    /* text-decoration: none; */
 }
 
 * {
@@ -31,7 +32,7 @@ main {
 .navbar {
     width: 100vw;
     height: 60px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #2C3333;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,10 +41,10 @@ main {
     position: fixed;
 }
 
-.navbar.scrolled {
+/* .navbar.scrolled {
     background-color: #0b0b0b;
     transition: background-color .6s
-}
+} */
 
 .navbar-logo {
     font-size: 38px;
@@ -61,7 +62,7 @@ main {
 .navbar-input,
 header {
     height: 40px;
-    width: 250px;
+    /* width: 250px; */
     color: #fff
 }
 
@@ -77,8 +78,8 @@ header {
 }
 
 .navbar-input {
-    border: 2px solid #fff;
-    background-color: #141414;
+    /* border: 2px solid #fff; */
+    /* background-color: #141414; */
     margin-inline: .25rem;
     text-align: left;
     padding-inline: .5rem
@@ -135,23 +136,27 @@ header {
     font-size: 4rem;
     margin-bottom: .4rem;
     text-align: left;
-    color: #fff
+    color: #fff;
+    height: 60px;
 }
 
 .posterImage__runtime {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #fff
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .posterImage__description {
     font-style: italic;
     color: #fff;
     font-size: 1rem;
-    margin-bottom: .25rem;
+    margin-bottom: 1rem;
     display: flex;
     text-align: left;
-    width: 50%
+    width: 50%;
 }
 
 .container {
@@ -173,15 +178,16 @@ header {
     text-align: center;
 }
 
-footer {
+.footer {
     gap: 2rem;
     display: flex;
     flex-direction: column;
     letter-spacing: .05rem;
-    border-top: 1px solid gray;
-    width: 90vw;
+    /* border-top: 1px solid gray; */
+    width: 100vw;
     margin: auto;
     padding-top: 2rem;
+    background-color: #2C3333;
 }
 
 .contact {
@@ -281,8 +287,8 @@ footer {
 }
 
 .details {
-    height: 300px;
-    width: 300px;
+    height: 160px;
+    width: 250px;
     position: absolute;
     top: 0;
     left: 0;
@@ -291,11 +297,11 @@ footer {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     gap: .5rem;
     opacity: 0;
     font-size: 14px;
-    margin-inline: 1rem
+    /* margin-inline: 1rem */
 }
 
 .movie {
@@ -313,7 +319,7 @@ footer {
 .title {
     font-weight: 700;
     font-size: 22px;
-    border-bottom: 1px solid #000
+    /* border-bottom: 1px solid #000 */
 }
 
 .overview {
@@ -403,9 +409,12 @@ footer {
 }
 
 .movie__links {
-    bottom: 120px;
+    display: flex;
     justify-content: space-between;
-    width: 75%
+    gap: 5rem;
+    width: 100%;
+    padding-inline: 2rem;
+    margin-bottom: 2rem;
 }
 
 .movie__heading {
@@ -414,44 +423,29 @@ footer {
 
 .movie__Button {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: .8rem 2rem;
-    border-radius: 20px;
+    justify-content: space-between;
+    padding: .5rem;
     cursor: pointer;
-    width: 150px;
+    width: 120px;
+    height: 35px;
     color: #000;
-    font-weight: 700
+    font-weight: 700;
+    background-color: rgb(0, 109, 146);
 }
 
-.movie__homeButton {
-    background-color: green
-}
-
-.movie__homeButton:hover {
-    background-color: darkgreen;
-}
-
-.movie__favoriteButton {
-    background-color: red;
+.movie__FavoriteButton {
+    width: 120px;
+    height: 35px;
+    background-color: rgb(0, 109, 146);
     border: none;
-    width: 220px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-.movie__favoriteButton:hover {
-    background-color: rgb(168, 9, 9);
-}
-
-.movie__imdbButton {
-    background-color: #f3ce13
-}
-
-.movie__imdbButton:hover {
-    background-color: #a08913;
-}
-
-.newTab {
-    margin-left: 1.4rem
+.movie__Button>p {
+    height: 20px;
+    padding-top: .5rem;
 }
 
 .movie__production {
@@ -481,6 +475,7 @@ footer {
 
 .favorites {
     width: 100vw;
+    /* height: 72vh; */
     padding-top: 5rem;
     padding-bottom: 3rem;
 }
@@ -525,6 +520,7 @@ footer {
 
     .navbar-logo {
         font-size: 1.5rem;
+        text-decoration: none;
     }
 
     .hidden {
@@ -660,15 +656,6 @@ footer {
         margin-inline: .3rem;
     }
 
-    .movie__homeButton {
-        width: 125px;
-        padding-inline: .5rem;
-    }
-
-    .movie__favoriteButton {
-        width: 70px;
-    }
-
     footer {
         border: none;
         display: flex;
@@ -701,4 +688,73 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+}
+
+/* ------------------------------ */
+
+.cards {
+    display: inline-block;
+    transition: transform .2s;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0.19rem;
+    cursor: pointer;
+    min-width: 200px;
+    height: 300px;
+    z-index: 0;
+    border: 1px solid rgb(99, 99, 99);
+}
+
+.cards:hover {
+    transform: scale(1.2);
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.cards__img {
+    height: 300px;
+}
+
+.cards__overlay {
+    position: absolute;
+    padding: 0 1rem 1rem 1rem;
+    bottom: 0px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: flex-end;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.cards__overlay:hover {
+    opacity: 1;
+}
+
+.card__title {
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.card__runtime {
+    font-size: .75rem;
+    margin-bottom: 0.25rem;
+}
+
+.card__rating {
+    float: right;
+}
+
+.card__description {
+    font-style: italic;
+    font-size: .75rem;
+    margin-bottom: 0.25rem;
+}
+
+.posterImage__overlay {
+    gap: 3rem;
 }

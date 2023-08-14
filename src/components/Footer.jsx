@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="footer">
             <section className="contact">
                 <div className="question">QUESTIONS: +43 676 350 8788</div>
                 <div className="contact__Links">
