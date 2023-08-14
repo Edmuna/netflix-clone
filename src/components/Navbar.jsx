@@ -19,6 +19,11 @@ const Navbar = () => {
         }
     };
 
+    const closeMenu = () => {
+        setShowNavbarLinks(false);
+        setShowXMenu(false);
+    };
+
     const delayedSearchInputValueHandler = (e) => {
         const newSearchInputValue = e.target.value;
         setTimeout(() => {
@@ -31,11 +36,11 @@ const Navbar = () => {
             <nav className={`navbar`}>
                 <NavLink to="/"><h1 className="navbar-logo">NETFLIX</h1></NavLink>
                 <ul className={`navbar-links ${showNavbarLinks ? '' : 'hidden'}`}>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="popular">Popular</NavLink>
-                    <NavLink to="top_rated_movies">Top rated</NavLink>
-                    <NavLink to="upcoming">Upcoming</NavLink>
-                    <NavLink to="favorites">Favorites</NavLink>
+                    <NavLink to="/" onClick={closeMenu}>Home</NavLink>
+                    <NavLink to="popular" onClick={closeMenu}>Popular</NavLink>
+                    <NavLink to="top_rated_movies" onClick={closeMenu}>Top rated</NavLink>
+                    <NavLink to="upcoming" onClick={closeMenu}>Upcoming</NavLink>
+                    <NavLink to="favorites" onClick={closeMenu}>Favorites</NavLink>
                 </ul>
                 <div className="search-input">
                     <Input icon={<Icon name='search' inverted circular link />} onChange={delayedSearchInputValueHandler} className="navbar-input" size='large' icon='search' placeholder='Search...' />

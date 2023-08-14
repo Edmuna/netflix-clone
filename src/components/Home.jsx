@@ -69,9 +69,7 @@ export default function Home({ fetchData }) {
                     ))}
                 </Carousel >
             </div >
-            <div className="navlinks__Container">
-                <Favorites />
-            </div>
+            <Favorites />
         </>
     )
 }
