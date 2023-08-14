@@ -504,7 +504,7 @@ header {
     .navbar-links {
         position: absolute;
         height: 100vh;
-        width: 35vw;
+        width: 100vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -512,14 +512,13 @@ header {
         top: 60px;
         padding-top: 2rem;
         right: 0;
-        background-color: #281414;
+        background-color: #2C3333;
         gap: 4rem;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+        scroll-behavior: unset;
     }
 
     .navbar-logo {
-        font-size: 1.5rem;
+        font-size: 2rem;
         text-decoration: none;
     }
 
