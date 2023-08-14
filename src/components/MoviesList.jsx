@@ -28,26 +28,6 @@ const MoviesList = ({ fetchData, url, children, movies }) => {
             </div>
             <div className="card__container">
                 {moviesToRender.map((movie, id) => (
-                    // <Link key={id} to={`/movie/${movie.id}`}>
-                    //     <div key={id} className="card">
-                    //         <div className="card-img">
-                    //             <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} alt="" />
-                    //         </div>
-                    //         <div className="details">
-                    //             <div className="title">
-                    //                 {movie.title}
-                    //             </div>
-                    //             <div className="vote__heart">
-                    //                 <div className="vote">
-                    //                     {movie.vote_average} <i className="fa-regular fa-star fa-lg"></i>
-                    //                 </div>
-                    //             </div>
-                    //             {/* <div className="overview">
-                    //                 {movie.overview}
-                    //             </div> */}
-                    //         </div>
-                    //     </div>
-                    // </Link> 
                     <Link key={id} to={`/movie/${movie.id}`} style={{ textDecoration: "none", color: "white" }}>
                         <div className="cards">
                             <img className="cards__img" src={`https://image.tmdb.org/t/p/original${movie ? movie.poster_path : ""}`} />

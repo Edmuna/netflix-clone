@@ -1,19 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer";
-import { useSearchedMovies } from "../SearchedMoviesContext"; // Import the context hook
-import { Input, Icon } from 'semantic-ui-react'
+import { useSearchedMovies } from "../SearchedMoviesContext";
+import { Input, Icon } from 'semantic-ui-react';
 
 const Navbar = () => {
-    // const [scrolled, setScrolled] = useState(false);
-    const { searchInputValue, searchInputValueHandler } = useSearchedMovies(); // Get the function and value from the context
-    const [showNavbarLinks, setShowNavbarLinks] = useState(false)
+    const { searchInputValue, searchInputValueHandler } = useSearchedMovies();
+    const [showNavbarLinks, setShowNavbarLinks] = useState(false);
+    const [showXMenu, setShowXMenu] = useState(false);
 
     const showNavbarLinksClickHandler = () => {
-        if (showNavbarLinks) {
-            setShowNavbarLinks(false)
-        } else setShowNavbarLinks(true)
-    }
+        if (!showNavbarLinks && !showXMenu) {
+            setShowNavbarLinks(true);
+            setShowXMenu(true);
+        } else {
+            setShowNavbarLinks(false);
+            setShowXMenu(false);
+        }
+    };
 
     const delayedSearchInputValueHandler = (e) => {
         const newSearchInputValue = e.target.value;
@@ -22,26 +26,11 @@ const Navbar = () => {
         }, 1000);
     };
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         if (window.scrollY > 0) {
-    //             setScrolled(true);
-    //         } else {
-    //             setScrolled(false);
-    //         }
-    //     };
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
-
     return (
         <>
-            {/* <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}> */}
             <nav className={`navbar`}>
                 <NavLink to="/"><h1 className="navbar-logo">NETFLIX</h1></NavLink>
-                <ul className={`navbar-links ${!showNavbarLinks ? `hidden` : ``} `}>
+                <ul className={`navbar-links ${showNavbarLinks ? '' : 'hidden'}`}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="popular">Popular</NavLink>
                     <NavLink to="top_rated_movies">Top rated</NavLink>
@@ -49,17 +38,19 @@ const Navbar = () => {
                     <NavLink to="favorites">Favorites</NavLink>
                 </ul>
                 <div className="search-input">
-                    {/* <input onChange={delayedSearchInputValueHandler} className="navbar-input" placeholder="Titles, peoples, genres" type="text" /> */}
                     <Input icon={<Icon name='search' inverted circular link />} onChange={delayedSearchInputValueHandler} className="navbar-input" size='large' icon='search' placeholder='Search...' />
                 </div>
-                <div className="hamburger__Menu"><i onClick={showNavbarLinksClickHandler} className="fa-solid fa-bars fa-2xl"></i></div>
-            </nav >
+                <div className={`hamburger__Menu ${!showXMenu ? '' : 'hidden'}`} onClick={showNavbarLinksClickHandler}>
+                    <i className="fa-solid fa-bars fa-2xl"></i>
+                </div>
+                <div className={`X__Menu ${showXMenu ? '' : 'hidden'}`} onClick={showNavbarLinksClickHandler}>
+                    <i className="fa-solid fa-x fa-2xl"></i>
+                </div>
+            </nav>
             <Outlet />
             <Footer />
         </>
-    )
+    );
 }
 
 export default Navbar;
-
-// {`search-input ${!showNavbarLinks ? `hidden` : ``} `}

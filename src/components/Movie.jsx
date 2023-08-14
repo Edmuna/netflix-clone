@@ -53,11 +53,11 @@ const Movie = ({ addFavoriteMoviesClickHandler }) => {
             </div>
             <div className="movie__links">
                 {
-                    currentMovieDetail && currentMovieDetail.homepage && <a href={currentMovieDetail.homepage} target="_blank" className="movie__Button "><p>Homepage</p><i className=" fas fa-external-link-alt"></i></a>
+                    currentMovieDetail && currentMovieDetail.homepage && <a href={currentMovieDetail.homepage} target="_blank" className="movie__Button ">Homepage</a>
                 }
                 <button className="movie__FavoriteButton" onClick={() => addFavoriteMoviesClickHandler(currentMovieDetail.id)}>Add</button>
                 {
-                    currentMovieDetail && currentMovieDetail.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id} target="_blank" className="movie__Button"><p>IMDB</p><i className=" fas fa-external-link-alt"></i></a>
+                    currentMovieDetail && currentMovieDetail.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id} target="_blank" className="movie__Button">IMDB</a>
                 }
             </div >
         </div >

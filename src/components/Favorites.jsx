@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 
 const Favorites = () => {
     const [favoriteMovies, setFavoriteMovies] = useState([]);
 
     useEffect(() => {
-        // Fetch the full movie details for each movie ID in the favoriteMoviesList
         const fetchFavoriteMovies = async () => {
             try {
                 const storedFavoriteMoviesList = JSON.parse(localStorage.getItem('favoriteMoviesList')) || [];
@@ -29,7 +27,7 @@ const Favorites = () => {
 
     return (
         <div className="container favorites">
-            <div className="header">
+            <div className="header__Favorites">
                 <Header>Favorites</Header>
             </div>
             <div className="card__container">
