@@ -649,6 +649,17 @@ header {
         margin: 2rem 0;
     }
 
+    .movie__detailRight {
+        gap: 1rem;
+    }
+
+    .movie__name {
+        height: 100px;
+        text-align: left;
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
     .movie__Button {
         height: 40px;
         width: 110px;
