@@ -5,7 +5,7 @@ const Popular = ({ fetchData }) => {
     const { searchedMoviesList } = useSearchedMovies();
 
     const popularUrl =
-        "https://api.themoviedb.org/3/movie/popular?api_key=72d2974158fa7648cd09581860b1304f";
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=72d2974158fa7648cd09581860b1304f";
 
     return (
         <>
